@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+df -h /dev/sda1 | sed '/Filesystem/d' | awk '{print$5}' 

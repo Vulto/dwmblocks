@@ -1,0 +1,3 @@
+#!/bin/bash
+pidof "steam" > /dev/null 
+#[[ $? == 0 ]] && echo "" || echo " "

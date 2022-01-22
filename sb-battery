@@ -1,0 +1,38 @@
+#!/bin/sh
+
+level="$(cat /sys/class/power_supply/BAT0/capacity)"
+
+stat="$(cat /sys/class/power_supply/BAT0/status)"
+
+bar_metter() {
+	if 
+		[ $level -ge 80 ]
+	then
+		printf ""
+	fi
+
+	if 
+		[ $level -ge 60 ] && [ $level -le 79 ]
+	then
+		printf ""
+	fi	
+
+	if 
+		[ $level -ge 40 ] && [ $level -le 69 ]
+	then
+		printf ""
+	fi
+		
+	if 
+		[ $level -ge 20 ] && [ $level -le 39 ]
+	then
+		printf ""
+	fi
+
+	if 
+		[ $level -ge 10 ] && [ $level -le 29 ]
+	then
+		printf ""
+	fi
+}
+[ $stat == "Charging" ] && printf "" || bar_metter

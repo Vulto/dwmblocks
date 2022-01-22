@@ -1,0 +1,3 @@
+#!/bin/sh
+headphone="$(bluetoothctl info B8:F6:53:5E:28:BE | grep Connected | cut -f2 -d' ')" 
+[[ $headphone == yes ]] && echo 
